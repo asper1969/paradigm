@@ -1,0 +1,27 @@
+@mixin sprity($sprite){
+
+  @extend .icon;
+  @include sprite($sprite);
+}
+
+@mixin transite($property: all, $duration: .3s, $timing: easy-in){
+  transition-property: $property;
+  transition-duration: $duration;
+  transition-timing-function: $timing;
+}
+
+@mixin respond-to($point) {
+  @if $point == 320 {
+    @media only screen and (max-width: 767px) { @content; }
+  }
+  @else if $point == 768 {
+    @media only screen and (max-width: 959px) { @content; }
+  }
+  @else if $point == 960 {
+    @media only screen and (max-width: 1199px) { @content; }
+  }
+}
+
+@mixin icon($icon){
+  background: url('../icons/#{$icon}') no-repeat center center;
+}
