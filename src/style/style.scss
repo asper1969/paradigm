@@ -1,5 +1,13 @@
+/*
+Theme Name: paradigm
+*/
+
 @import "helpers/reset";
 @import "helpers/mixins";
 @import "helpers/vars";
 @import "helpers/slick";
 @import "helpers/slick-theme";
+
+h1{
+  color: red;
+}
