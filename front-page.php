@@ -141,8 +141,8 @@ get_header(); ?>
     <div class="container">
         <div class="socials">
             <?php
-            $post_id = pll_get_post(99);
-            $post = get_post($post_id);
+//            $post_id = pll_get_post(99);
+            $post = get_post(99);
             echo $post->post_content;
             ?>
         </div>
