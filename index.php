@@ -1,6 +1,17 @@
 <?php get_header(); ?>
 <?php $lang = pll_current_language();
 ?>
+<div class="main-menu">
+    <?php
+    if($lang == 'ru'){
+        wp_nav_menu(array('menu' => 108));
+    }elseif($lang == 'kk'){
+        wp_nav_menu(array('menu' => 109));
+    }else{
+        wp_nav_menu(array('menu' => 110));
+    }
+    ?>
+</div>
 <ul><?php pll_the_languages();?></ul>
 
 <?php

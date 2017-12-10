@@ -1,4 +1,15 @@
 <?php get_header(); ?>
+<div class="main-menu">
+    <?php
+    if($lang == 'ru' || $lang == ''){
+        wp_nav_menu(array('menu' => 108));
+    }elseif($lang == 'kk'){
+        wp_nav_menu(array('menu' => 109));
+    }else{
+        wp_nav_menu(array('menu' => 110));
+    }
+    ?>
+</div>
 <ul><?php pll_the_languages();?></ul>
 
 <?php

@@ -6,6 +6,18 @@ $args = array(
 $slides = get_posts($args);
 
 get_header(); ?>
+
+<div class="main-menu">
+    <?php
+    if($lang == 'ru'){
+        wp_nav_menu(array('menu' => 108));
+    }elseif($lang == 'kk'){
+        wp_nav_menu(array('menu' => 109));
+    }else{
+        wp_nav_menu(array('menu' => 110));
+    }
+    ?>
+</div>
 <ul><?php pll_the_languages();?></ul>
 <div class="slider">
     <?php foreach($slides as $slide): ?>
