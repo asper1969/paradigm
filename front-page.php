@@ -18,7 +18,17 @@ get_header(); ?>
     }
     ?>
 </div>
-<ul><?php pll_the_languages();?></ul>
+<div class="nav-elements">
+    <div class="btn btn-menu">
+        <div class="line">...</div>
+        <div class="line">......</div>
+        <div class="line">...</div>
+    </div>
+    <div class="logo">
+        <img src="<?php echo get_template_directory_uri(); ?>/prod/images/logo.png" alt="Paradigm Projects Kazakhstan">
+    </div>
+    <ul class="langs"><?php pll_the_languages();?></ul>
+</div>
 <div class="slider">
     <?php foreach($slides as $slide): ?>
     <?php
@@ -29,7 +39,7 @@ get_header(); ?>
     ?>
     <div class="slide" style="background: url(<?php echo $slide_img;?>); background-size: cover;">
         <div class="container">
-            <div class="text">
+            <div class="title">
                 <?php echo $slide->post_title;?>
             </div>
             <div class="text">
@@ -38,9 +48,9 @@ get_header(); ?>
             <a href="<?php echo $slide_meta['more'][0];?>" class="more">
                 <?php
                 if($lang == 'ru'){
-                    echo 'Подробнее';
+                    echo 'Перейти';
                 }elseif($lang == 'kk'){
-                    echo 'Подробнее kz';
+                    echo 'Өту';
                 }else{
                     echo 'More';
                 }
