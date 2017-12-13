@@ -17,6 +17,8 @@ get_header(); ?>
         wp_nav_menu(array('menu' => 110));
     }
     ?>
+
+    <div class="close-btn">+</div>
 </div>
 <div class="nav-elements">
     <div class="btn btn-menu">

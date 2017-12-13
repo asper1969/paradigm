@@ -19,7 +19,51 @@ body{
 }
 
 .main-menu{
-  display: none;
+  //display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: $c-primary;
+  width: 310px;
+  max-width: 80vw;
+  padding: 40px;
+  z-index: 100;
+  box-shadow: 0 0 10px rgba(#000, .7);
+  transform: translateX(-320px);
+
+  @include transite(all);
+
+  &.active{
+    transform: translateX(0);
+  }
+
+  a{
+    color: #fff;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 20px;
+
+    @include transite(all);
+
+    &:hover{
+      color: $c-accent;
+    }
+  }
+
+  .close-btn{
+    color: #fff;
+    transform-origin: -50% -50%;
+    transform: rotate(45deg);
+    top: 20px;
+    right: 20px;
+
+    @include transite(all);
+
+    &:hover{
+      color: $c-accent;
+    }
+  }
 }
 
 .nav-elements{
@@ -37,6 +81,12 @@ body{
     justify-content: center;
     padding: 0 20px;
     cursor: pointer;
+
+    @include transite(all);
+
+    &:hover{
+      background: $c-accent;
+    }
 
     .line{
       border-bottom: 3px solid #fff;
@@ -96,6 +146,12 @@ body{
       text-transform: uppercase;
       color: #fff;
       font-weight: 100;
+
+      @include transite(all);
+
+      &:hover{
+        color: $c-accent;
+      }
     }
   }
 }
@@ -300,6 +356,20 @@ body{
           align-items: center;
           justify-content: center;
           background: url('../images/elements/cube.png') no-repeat center center;
+
+          &:after{
+            content: '';
+            display: block;
+            width: 50px;
+            height: 50px;
+            background: rgba(#fff, .7);
+            filter: blur(10px);
+            border-radius: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
         }
 
         img{
@@ -459,6 +529,33 @@ body{
       bottom: -4px;
       left: 50%;
       transform: translateX(-50%);
+    }
+  }
+
+  .container{
+
+    li{
+      height: 72px;
+
+      a{
+        display: block;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        img{
+          position: static;
+          transform: none;
+        }
+      }
+
+      img{
+        max-height: 100%;
+        width: auto;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
     }
   }
 }
