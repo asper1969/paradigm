@@ -8,6 +8,7 @@ $slides = get_posts($args);
 get_header(); ?>
 
 <div class="main-menu">
+    <img src="<?php echo get_template_directory_uri(); ?>/prod/images/elements/logo.png" alt="Paradigm Projects Kazakhstan">
     <?php
     if($lang == 'ru'){
         wp_nav_menu(array('menu' => 108));
@@ -32,35 +33,38 @@ get_header(); ?>
     <ul class="langs"><?php pll_the_languages();?></ul>
 </div>
 <div class="slider">
-    <?php foreach($slides as $slide): ?>
-    <?php
-    $slide_id = $slide->ID;
-    $slide_meta = get_post_meta($slide_id);
-    $slide_img_id = $slide_meta['slide'][0];
-    $slide_img = fly_get_attachment_image_src($slide_img_id, array(1920, 600))['src'];
-    ?>
-    <div class="slide" style="background: url(<?php echo $slide_img;?>); background-size: cover;">
-        <div class="container">
-            <div class="title">
-                <?php echo $slide->post_title;?>
+    <div class="wrapper">
+        <?php foreach($slides as $slide): ?>
+            <?php
+            $slide_id = $slide->ID;
+            $slide_meta = get_post_meta($slide_id);
+            $slide_img_id = $slide_meta['slide'][0];
+            $slide_img = fly_get_attachment_image_src($slide_img_id, array(1920, 600))['src'];
+            ?>
+            <div class="slide" style="background: url(<?php echo $slide_img;?>); background-size: cover;">
+                <div class="container">
+                    <div class="title">
+                        <?php echo $slide->post_title;?>
+                    </div>
+                    <div class="text">
+                        <?php echo $slide->post_content;?>
+                    </div>
+                    <a href="<?php echo $slide_meta['more'][0];?>" class="more">
+                        <?php
+                        if($lang == 'ru'){
+                            echo 'Перейти';
+                        }elseif($lang == 'kk'){
+                            echo 'Өту';
+                        }else{
+                            echo 'More';
+                        }
+                        ?>
+                    </a>
+                </div>
             </div>
-            <div class="text">
-                <?php echo $slide->post_content;?>
-            </div>
-            <a href="<?php echo $slide_meta['more'][0];?>" class="more">
-                <?php
-                if($lang == 'ru'){
-                    echo 'Перейти';
-                }elseif($lang == 'kk'){
-                    echo 'Өту';
-                }else{
-                    echo 'More';
-                }
-                ?>
-            </a>
-        </div>
+        <?php endforeach;?>
     </div>
-    <?php endforeach;?>
+    <div class="paging-info"></div>
 </div>
 <div class="portfolio">
     <div class="col col-title">

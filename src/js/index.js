@@ -1,10 +1,23 @@
 import {slick} from 'slick-carousel';
 
 $(document).ready(function(){
-    $('.slider').slick({
+    var $status = $('.paging-info');
+    var $mainSlider = $('.slider .wrapper');
+
+    if($('.slider .wrapper .slide').length > 1){
+
+        $mainSlider.on('init reInit afterChange', function(event, slick, currentSlide, nextSlide){
+            //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+            var i = (currentSlide ? currentSlide : 0) + 1;
+            $status.html('<strong>0' + i + '</strong>' + '/0' + slick.slideCount);
+        });
+    }
+
+    $mainSlider.slick({
         slidesToShow: 1,
         dots: true,
-        adaptiveHeight: true
+        adaptiveHeight: true,
+        fade: true
     });
 
     $('.partners .container ul').slick({
