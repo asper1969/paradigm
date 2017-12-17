@@ -523,6 +523,7 @@ body{
 .about-us{
   min-height: 317px;
   background: url('../images/about-us.jpg') no-repeat center center;
+  margin-top: 4vw;
 
   .container{
     max-width: 1400px;
@@ -537,9 +538,42 @@ body{
       width: 620px;
       color: #fff;
 
+      h2.title{
+        text-transform: uppercase;
+        font-size: 36px;
+        font-weight: 100;
+        margin-top: -84px;
+        margin-left: 40px;
+        margin-bottom: 35px;
+
+        .char1{
+          font-size: 150px;
+          font-weight: 700;
+          position: relative;
+          z-index: 10;
+          margin-right: 62px;
+          //top: -85px;
+
+          &:before{
+            content: '';
+            display: block;
+            width: 187px;
+            height: 216px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: url('../images/elements/os.png') no-repeat center center;
+            z-index: -1;
+          }
+        }
+      }
+
       .text{
-        max-height: 68px;
+        max-height: 76px;
         overflow-y: hidden;
+        font-size: 14px;
+        margin-bottom: 32px;
       }
 
       .more{
@@ -553,6 +587,12 @@ body{
         padding: 0 36px;
         position: relative;
         text-transform: uppercase;
+
+        @include transite(all);
+
+        &:hover{
+          background: $c-accent;
+        }
 
         &:after{
           content: '';
@@ -574,11 +614,18 @@ body{
       padding: 46px 60px;
       box-shadow: 0 0 16px rgba(#000, .2);
       position: relative;
+      margin-top: 40px;
 
       &:after{
         content: '';
         display: block;
-
+        width: 90px;
+        height: 101px;
+        background: url('../images/elements/form-diam.png') no-repeat center center;
+        position: absolute;
+        top: -50px;
+        right: -43px;
+        opacity: .4;
       }
 
       .title{
@@ -607,6 +654,10 @@ body{
         display: flex;
         justify-content: space-between;
 
+        div.wpcf7-validation-errors{
+          display: none!important;
+        }
+
         input[type="text"]{
           width: 186px;
           height: 30px;
@@ -617,7 +668,6 @@ body{
 
         input[type="submit"]{
           display: inline-block;
-
           height: 30px;
           line-height: 30px;
           color: $c-primary;
@@ -627,6 +677,14 @@ body{
           padding: 0 20px;
           position: relative;
           font-size: 14px;
+
+          @include transite(all);
+
+          &:hover{
+            background: $c-accent;
+            border-color: $c-accent;
+            color: #fff;
+          }
 
           &:after{
             content: '';
@@ -657,8 +715,9 @@ body{
     position: relative;
     text-transform: uppercase;
     padding-bottom: 12px;
-    margin-bottom: 12px;
     text-align: center;
+    margin-top: 3vw;
+    margin-bottom: 2.5vw;
 
     &:after{
       content: '';
@@ -674,6 +733,7 @@ body{
   }
 
   .container{
+    margin-bottom: 3.5vw;
 
     li{
       height: 72px;
@@ -696,11 +756,70 @@ body{
         position: relative;
         top: 50%;
         transform: translateY(-50%);
+        margin: 0 auto;
       }
+    }
+
+    .slick-prev,
+    .slick-next{
+      width: 7px;
+      height: 13px;
+      text-indent: -99999px;
+    }
+
+    .slick-prev{
+      background: url('../images/elements/prev.png') no-repeat center center;
+    }
+
+    .slick-next{
+      background: url('../images/elements/next.png') no-repeat center center;
     }
   }
 }
 
 footer{
   background: $c-primary;
+  color: #fff;
+
+  .wrapper{
+    max-width: calc(100vw - 146px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  pre{
+    display: none;
+  }
+
+  .logo{
+
+    img{
+      transform: scale(.8);
+    }
+  }
+
+  .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .socials{
+      margin-right: 2vw;
+
+      ul{
+        display: flex;
+
+        li{
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  .copyright{
+    font-size: 14px;
+    font-weight: 300;
+  }
 }

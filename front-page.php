@@ -112,7 +112,7 @@ get_header(); ?>
         <?php echo $post->post_content;?>
     </div>
 </div>
-<div class="about-us">
+<div class="about-us <?php if($lang == 'ru'){echo 'lettering';}?>">
     <div class="container">
         <?php
         $post_id = pll_get_post(72);
@@ -165,16 +165,20 @@ get_header(); ?>
     <div class="container"><?php echo $post->post_content;?></div>
 </div>
 <footer>
-    <div class="logo"></div>
-    <div class="container">
-        <div class="socials">
-            <?php
-//            $post_id = pll_get_post(99);
-            $post = get_post(99);
-            echo $post->post_content;
-            ?>
+    <div class="wrapper">
+        <div class="logo">
+            <img src="<?php echo get_template_directory_uri(); ?>/prod/images/elements/logo.png" alt="Paradigm Projects Kazakhstan">
         </div>
-        <div class="copyright"></div>
+        <div class="container">
+            <div class="socials">
+                <?php
+                //            $post_id = pll_get_post(99);
+                $post = get_post(99);
+                echo $post->post_content;
+                ?>
+            </div>
+            <div class="copyright">Копирайт Remedy</div>
+        </div>
     </div>
 </footer>
 <?php get_footer();

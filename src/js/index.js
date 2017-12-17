@@ -1,4 +1,5 @@
 import {slick} from 'slick-carousel';
+import {lettering} from 'letteringjs';
 
 $(document).ready(function(){
     var $status = $('.paging-info');
@@ -12,6 +13,8 @@ $(document).ready(function(){
             $status.html('<strong>0' + i + '</strong>' + '/0' + slick.slideCount);
         });
     }
+
+    $('.lettering h2.title').lettering();
 
     $mainSlider.slick({
         slidesToShow: 1,
