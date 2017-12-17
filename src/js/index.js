@@ -24,7 +24,9 @@ $(document).ready(function(){
     });
 
     $('.partners .container ul').slick({
-        slidesToShow: 5
+        slidesToShow: 5,
+        variableWidth: true,
+        focusOnSelect: true
     });
 
     $('.nav-elements .btn-menu').click((e)=>{

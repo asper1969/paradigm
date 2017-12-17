@@ -356,11 +356,27 @@ body{
     width: 1px / 3px * 100%;
     height: 15.5vw;
 
+    @include r(1200){
+      width: 50%;
+      height: 22.5vw;
+    }
+    @include r(560){
+      width: 100%;
+      height: 45vw;
+    }
+
     &.col-title{
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      @include r(1200){
+        width: 100%;
+        text-align: center;
+        height: auto;
+        padding: 0 20px;
+      }
 
       h2{
         font-weight: 100;
@@ -372,6 +388,12 @@ body{
         display: inline-block;
         font-size: 2.9vw;
 
+        @include r(1200){
+          font-size: 30px;
+          margin-top: 36px;
+          margin-bottom: 32px;
+        }
+
         &:after{
           content: '';
           display: block;
@@ -381,6 +403,12 @@ body{
           position: absolute;
           bottom: 4px;
           left: 0;
+
+          @include r(1200){
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+          }
         }
       }
 
@@ -390,6 +418,15 @@ body{
         font-weight: 100;
         display: inline-block;
         width: 22vw;
+
+        @include r(1200){
+          width: 80%;
+          margin-bottom: 50px;
+          font-size: 16px;
+        }
+        @include r(560){
+          width: auto;
+        }
       }
     }
 
@@ -397,6 +434,15 @@ body{
     &:nth-of-type(3), &:nth-of-type(7),
     &:nth-of-type(8){
       width: 1px / 6px * 100%;
+
+      @include r(1200){
+        width: 50%;
+        height: 22.5vw;
+      }
+      @include r(560){
+        width: 100%;
+        height: 45vw;
+      }
     }
     
     .img{
@@ -413,9 +459,17 @@ body{
         opacity: 0;
 
         @include transite(all);
+        @include r(1200){
+          background: rgba(#000, .32);
+          opacity: 1;
+        }
 
         &:hover{
           opacity: 1;
+
+          @include r(1200){
+            background: rgba(#000, .5);
+          }
         }
 
         h3{
@@ -425,6 +479,14 @@ body{
           font-size: 1.2vw;
           max-width: 80%;
 
+          @include r(1200){
+            font-size: 20px;
+            text-align: center;
+          }
+          @include r(560){
+            font-size: 16px;
+          }
+
           &:before{
             content: '';
             display: block;
@@ -433,6 +495,10 @@ body{
             border-right: 2px solid $c-accent;
             position: absolute;
             left: -24px;
+
+            @include r(1200){
+              display: none;
+            }
           }
         }
       }
@@ -452,6 +518,12 @@ body{
     margin-top: 3vw;
     margin-bottom: 2.5vw;
     text-align: center;
+
+    @include r(1200){
+      font-size: 30px;
+      margin-top: 36px;
+      margin-bottom: 32px;
+    }
 
     &:after{
       content: '';
@@ -479,12 +551,33 @@ body{
       flex-wrap: wrap;
       justify-content: center;
 
+
+
       li{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         width: 300px;
         margin-bottom: 1.8vw;
+        margin-right: 50px;
+
+        @media screen and (min-width: 1410px) {
+          &:nth-of-type(4){
+            margin-right: 0;
+          }
+
+          &:last-of-type{
+            margin-right: 0;
+          }
+        }
+
+        @include r(1200){
+          display: block;
+          margin-right: 0;
+        }
+        @include r(600){
+          margin-bottom: 36px;
+        }
 
         strong{
           position: relative;
@@ -494,6 +587,10 @@ body{
           align-items: center;
           justify-content: center;
           background: url('../images/elements/cube.png') no-repeat center center;
+
+          @include r(1200){
+            margin: 0 auto;
+          }
 
           &:after{
             content: '';
@@ -518,6 +615,13 @@ body{
           display: block;
           width: 182px;
           padding-top: 28px;
+          padding-right: 10px;
+
+          @include r(1200){
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 0;
+          }
         }
       }
     }
@@ -570,6 +674,9 @@ body.ru{
   @include r(1200){
     margin-bottom: 80px;
     background-size: cover;
+  }
+  @include r(760){
+    margin-top: 50px;
   }
 
   .container{
@@ -799,6 +906,10 @@ body.ru{
   margin: 0 auto;
   padding: 0 20px;
 
+  @include r(1440){
+    max-width: calc(100% - 40px);
+  }
+
   .title{
     font-size: 2.9vw;
     font-weight: 100;
@@ -809,6 +920,10 @@ body.ru{
     text-align: center;
     margin-top: 3vw;
     margin-bottom: 2.5vw;
+
+    @include r(1200){
+      font-size: 30px;
+    }
 
     &:after{
       content: '';
@@ -825,6 +940,11 @@ body.ru{
 
   .container{
     margin-bottom: 3.5vw;
+
+    .slick-slide{
+      width: 200px;
+      margin: 0 15px;
+    }
 
     li{
       height: 72px;
@@ -859,12 +979,12 @@ body.ru{
     }
 
     .slick-prev{
-      left: -5px;
+      //left: -5px;
       background: url('../images/elements/prev.png') no-repeat center center;
     }
 
     .slick-next{
-      right: -5px;
+      //right: -5px;
       background: url('../images/elements/next.png') no-repeat center center;
     }
   }
