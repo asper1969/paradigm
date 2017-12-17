@@ -352,7 +352,8 @@ body{
   flex-wrap: wrap;
 
   .col{
-    width: 33.3%;
+    //width: 33.3%;
+    width: 1px / 3px * 100%;
     height: 15.5vw;
 
     &.col-title{
@@ -392,8 +393,10 @@ body{
       }
     }
 
-    &.short{
-      width: 16.7%;
+    &:nth-of-type(2),
+    &:nth-of-type(3), &:nth-of-type(7),
+    &:nth-of-type(8){
+      width: 1px / 6px * 100%;
     }
     
     .img{
@@ -420,6 +423,7 @@ body{
           display: inline-block;
           font-weight: 300;
           font-size: 1.2vw;
+          max-width: 80%;
 
           &:before{
             content: '';
@@ -520,10 +524,53 @@ body{
   }
 }
 
+body.ru{
+
+  .container .block-about {
+
+    @media screen and (min-width: 1199px){
+      h2.title {
+        font-size: 36px;
+        font-weight: 100;
+        margin-top: -84px;
+        margin-left: 40px;
+        margin-bottom: 35px;
+
+        .char1 {
+          font-size: 150px;
+          font-weight: 700;
+          position: relative;
+          z-index: 10;
+          margin-right: 62px;
+          //top: -85px;
+
+          &:before {
+            content: '';
+            display: block;
+            width: 187px;
+            height: 216px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: url('../images/elements/os.png') no-repeat center center;
+            z-index: -1;
+          }
+        }
+      }
+    }
+  }
+}
+
 .about-us{
   min-height: 317px;
   background: url('../images/about-us.jpg') no-repeat center center;
   margin-top: 4vw;
+
+  @include r(1200){
+    margin-bottom: 80px;
+    background-size: cover;
+  }
 
   .container{
     max-width: 1400px;
@@ -534,38 +581,32 @@ body{
     justify-content: space-between;
     align-items: center;
 
+    @include r(620){
+      width: 280px;
+    }
+
     .block-about{
       width: 620px;
       color: #fff;
+
+      @include r(1330){
+        max-width: 48%;
+      }
+      @include r(1200){
+        margin: 0 auto;
+        max-width: 100%;
+      }
 
       h2.title{
         text-transform: uppercase;
         font-size: 36px;
         font-weight: 100;
-        margin-top: -84px;
-        margin-left: 40px;
+        margin-top: 45px;
         margin-bottom: 35px;
 
-        .char1{
-          font-size: 150px;
-          font-weight: 700;
-          position: relative;
-          z-index: 10;
-          margin-right: 62px;
-          //top: -85px;
-
-          &:before{
-            content: '';
-            display: block;
-            width: 187px;
-            height: 216px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            background: url('../images/elements/os.png') no-repeat center center;
-            z-index: -1;
-          }
+        @include r(1200){
+          margin-top: 30px;
+          margin-bottom: 16px;
         }
       }
 
@@ -574,6 +615,10 @@ body{
         overflow-y: hidden;
         font-size: 14px;
         margin-bottom: 32px;
+
+        @include r(1200){
+          margin-bottom: 24px;
+        }
       }
 
       .more{
@@ -589,6 +634,12 @@ body{
         text-transform: uppercase;
 
         @include transite(all);
+        @include r(620){
+          padding: 0 20px;
+          margin: 0 auto;
+          left: 50%;
+          transform: translateX(-50%);
+        }
 
         &:hover{
           background: $c-accent;
@@ -604,6 +655,10 @@ body{
           right: -50px;
           top: 50%;
           transform: translateY(-50%);
+
+          @include r(620){
+            display: none;
+          }
         }
       }
     }
@@ -616,6 +671,18 @@ body{
       position: relative;
       margin-top: 40px;
 
+      @include r(1330){
+        max-width: 50%;
+        padding: 46px 30px;
+      }
+      @include r(1200){
+       max-width: 100%;
+        margin: 40px auto -46px;
+      }
+      @include r(620){
+        padding: 36px 30px;
+      }
+
       &:after{
         content: '';
         display: block;
@@ -626,6 +693,10 @@ body{
         top: -50px;
         right: -43px;
         opacity: .4;
+
+        @include r(620){
+          display: none;
+        }
       }
 
       .title{
@@ -653,9 +724,20 @@ body{
       form{
         display: flex;
         justify-content: space-between;
+        position: relative;
+
+        @include r(620){
+          display: block;
+        }
 
         div.wpcf7-validation-errors{
           display: none!important;
+        }
+
+        .ajax-loader{
+          position: absolute;
+          top: 50%;
+          transfomr: translateY(-50%);
         }
 
         input[type="text"]{
@@ -664,6 +746,10 @@ body{
           border-bottom: 1px solid rgba($c-primary, .35);
           font-style: italic;
           background: transparent;
+
+          @include r(620){
+            margin-bottom: 20px;
+          }
         }
 
         input[type="submit"]{
@@ -679,6 +765,11 @@ body{
           font-size: 14px;
 
           @include transite(all);
+          @include r(620){
+            margin: 0 auto;
+            left: 50%;
+            transform: translateX(-50%);
+          }
 
           &:hover{
             background: $c-accent;
@@ -768,10 +859,12 @@ body{
     }
 
     .slick-prev{
+      left: -5px;
       background: url('../images/elements/prev.png') no-repeat center center;
     }
 
     .slick-next{
+      right: -5px;
       background: url('../images/elements/next.png') no-repeat center center;
     }
   }
@@ -787,6 +880,10 @@ footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include r(440){
+      display: block;
+    }
   }
 
   pre{
@@ -794,6 +891,14 @@ footer{
   }
 
   .logo{
+
+    @include r(560){
+      margin-top: -20px;
+    }
+    @include r(440){
+      margin-top: 0;
+      padding-top: 10px;
+    }
 
     img{
       transform: scale(.8);
@@ -805,8 +910,27 @@ footer{
     justify-content: space-between;
     align-items: center;
 
+    @include r(560){
+      display: block;
+      margin-top: 20px;
+    }
+    @include r(440){
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
     .socials{
       margin-right: 2vw;
+
+      @include r(560){
+        margin-bottom: 20px;
+      }
+      @include r(440){
+        margin-right: 0;
+      }
 
       ul{
         display: flex;

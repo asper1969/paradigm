@@ -22,6 +22,10 @@
   }
 }
 
+@mixin r($point) {
+  @media only screen and (max-width: #{$point}px) { @content; }
+}
+
 @mixin icon($icon){
   background: url('../icons/#{$icon}') no-repeat center center;
 }

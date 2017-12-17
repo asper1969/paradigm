@@ -82,10 +82,20 @@ get_header(); ?>
     <?php
     $terms = get_term_children($parent_cat_id, 'category');
     $arr_indexes = [0,1,6,7];
+    $proxy_arr = [];
     ?>
     <?php foreach($terms as $key=>$term_id):?>
         <?php
         $term = get_category($term_id);
+        $proxy_arr[$term->term_order] = $term;
+        ?>
+    <?php endforeach;?>
+    <?php
+    ksort($proxy_arr);
+    ?>
+    <?php foreach($proxy_arr as $key=>$term):?>
+        <?php
+        $term_id = $term->term_id;
         $image_url = get_wp_term_image($term_id);
         $image_id =  pippin_get_image_id($image_url);
         $image = fly_get_attachment_image_src($image_id, array(640, 298))['src'];

@@ -8,4 +8,7 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/prod/style/style.css" />
     <?php wp_head(); ?>
 </head>
-<body>
+<?php
+$lang = pll_current_language();
+?>
+<body class="<?php echo $lang;?>">
