@@ -169,6 +169,11 @@ body{
   .slide{
     height: 31vw;
     position: relative;
+    
+    @include r(1440){
+      height: 430px;
+      background-position: center center !important;
+    }
 
     &:after{
       content: '';
@@ -185,6 +190,16 @@ body{
       align-items: flex-start;
       padding-left: 12vw;
 
+      @include r(1440){
+        padding-left: 160px;
+        min-width: 500px;
+      }
+      @include r(560){
+        padding-left: 20px;
+        padding-right: 100px;
+        min-width: 100%;
+      }
+
       >div{
         width: 100%;
       }
@@ -196,6 +211,14 @@ body{
       font-weight: 100;
       margin-bottom: 1.5vw;
       position: relative;
+
+      @include r(1200){
+        font-size: 30px;
+        margin-bottom: 18px;
+      }
+      @include r(560){
+        font-size: 24px;
+      }
 
       &:before{
         content: 'p r k';
@@ -210,6 +233,14 @@ body{
         font-weight: 900;
         line-height: 4vw;
         transform: translateY(-50%);
+
+        @include r(1440){
+          font-size: 56px;
+          left: -10px;
+          top: calc(50% + 16px);
+          font-weight: 900;
+          line-height: 45px;
+        }
       }
 
       &:after{
@@ -230,6 +261,10 @@ body{
       width: 1vw;
       margin-bottom: 5vw;
       font-weight: 300;
+
+      @include r(1200){
+        margin-bottom: 40px;
+      }
     }
 
     .more{
@@ -276,6 +311,11 @@ body{
     left: 25px;
     transform: translateY(-50%);
 
+    @include r(560){
+      right: 25px;
+      left: auto;
+    }
+
     &:after{
       content: '';
       display: block;
@@ -294,6 +334,10 @@ body{
       width: auto;
       height: auto;
       margin-bottom: 2vw;
+
+      @include r(1440){
+        margin-bottom: 24px;
+      }
 
       &:last-of-type{}
 
@@ -340,9 +384,23 @@ body{
     font-weight: 300;
     transform: translateY(-50%);
 
+    @include r(1440){
+      top: calc(50% + 110px);
+    }
+    @include r(560){
+      font-size: 14px;
+      top: calc(50% + 100px);
+      right: 18px;
+      left: auto;
+    }
+
     strong{
       font-weight: 600;
       font-size: 30px;
+
+      @include r(560){
+        font-size: 24px;
+      }
     }
   }
 }
