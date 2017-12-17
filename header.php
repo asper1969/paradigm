@@ -11,4 +11,11 @@
 <?php
 $lang = pll_current_language();
 ?>
-<body class="<?php echo $lang;?>">
+<body class="<?php echo $lang;?>
+<?php
+    if(is_front_page()){
+        echo ' front';
+    }else{
+        echo ' not-front';
+    }
+?>">

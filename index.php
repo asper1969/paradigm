@@ -2,6 +2,7 @@
 <?php $lang = pll_current_language();
 ?>
 <div class="main-menu">
+    <img src="<?php echo get_template_directory_uri(); ?>/prod/images/elements/logo.png" alt="Paradigm Projects Kazakhstan">
     <?php
     if($lang == 'ru'){
         wp_nav_menu(array('menu' => 108));
@@ -11,8 +12,22 @@
         wp_nav_menu(array('menu' => 110));
     }
     ?>
+
+    <div class="close-btn">+</div>
 </div>
-<ul><?php pll_the_languages();?></ul>
+<div class="nav-elements">
+    <div class="btn btn-menu">
+        <div class="line">...</div>
+        <div class="line">......</div>
+        <div class="line">...</div>
+    </div>
+    <div class="logo">
+        <a href="/">
+            <img src="<?php echo get_template_directory_uri(); ?>/prod/images/logo.png" alt="Paradigm Projects Kazakhstan">
+        </a>
+    </div>
+    <ul class="langs"><?php pll_the_languages();?></ul>
+</div>
 
 <?php
 $page = $wp_query->get_queried_object();
@@ -65,8 +80,23 @@ $page_slug = $page->post_name;
     </div>
 <?php endif;?>
 <div class="img">
-    <div class="img">
-        <img src="<?php echo $image?>" alt="">
-    </div>
+    <img src="<?php echo $image?>" alt="">
 </div>
+<footer>
+    <div class="wrapper">
+        <div class="logo">
+            <img src="<?php echo get_template_directory_uri(); ?>/prod/images/elements/logo.png" alt="Paradigm Projects Kazakhstan">
+        </div>
+        <div class="container">
+            <div class="socials">
+                <?php
+                //            $post_id = pll_get_post(99);
+                $post = get_post(99);
+                echo $post->post_content;
+                ?>
+            </div>
+            <div class="copyright">Копирайт Remedy</div>
+        </div>
+    </div>
+</footer>
 <?php get_footer(); ?>

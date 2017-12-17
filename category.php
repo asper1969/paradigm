@@ -1,7 +1,8 @@
 <?php get_header(); ?>
 <div class="main-menu">
+    <img src="<?php echo get_template_directory_uri(); ?>/prod/images/elements/logo.png" alt="Paradigm Projects Kazakhstan">
     <?php
-    if($lang == 'ru' || $lang == ''){
+    if($lang == 'ru'){
         wp_nav_menu(array('menu' => 108));
     }elseif($lang == 'kk'){
         wp_nav_menu(array('menu' => 109));
@@ -9,8 +10,22 @@
         wp_nav_menu(array('menu' => 110));
     }
     ?>
+
+    <div class="close-btn">+</div>
 </div>
-<ul><?php pll_the_languages();?></ul>
+<div class="nav-elements">
+    <div class="btn btn-menu">
+        <div class="line">...</div>
+        <div class="line">......</div>
+        <div class="line">...</div>
+    </div>
+    <div class="logo">
+        <a href="/">
+            <img src="<?php echo get_template_directory_uri(); ?>/prod/images/logo.png" alt="Paradigm Projects Kazakhstan">
+        </a>
+    </div>
+    <ul class="langs"><?php pll_the_languages();?></ul>
+</div>
 
 <?php
 $current_cat = $wp_query->get_queried_object();
@@ -19,11 +34,12 @@ $category_id = pll_get_term($current_cat_id);
 $category = get_category($current_cat_id);
 $img_url = $image_url = get_wp_term_image($current_cat_id);
 $image_id =  pippin_get_image_id($image_url);
-$image = fly_get_attachment_image_src($image_id, array(900, 600))['src'];
+$image = fly_get_attachment_image_src($image_id, array(1920, 600))['src'];
 ?>
 
-<div class="info category">
-    <div class="container">
+<div class="info category page">
+
+    <div class="block-text">
         <h1 class="title">
             <?php echo $category->name;?>
         </h1>
@@ -31,18 +47,25 @@ $image = fly_get_attachment_image_src($image_id, array(900, 600))['src'];
             <?php echo $category->description;?>
         </div>
     </div>
-    <div class="img" style="background: url(<?php echo $image;?>); background-size: cover;">
-        ffff
-    </div>
+    <div class="img" style="background: url(<?php echo $image;?>); background-size: cover;"></div>
 </div>
 <div class="projects">
     <?php if($category->category_parent == 0):?>
         <?php
         $terms = get_term_children($current_cat_id, 'category');
-        foreach($terms as $key=>$term_id):
+        $proxy_arr = [];
+        ?>
+        <?php foreach($terms as $key=>$term_id){
+            $term = get_category($term_id);
+            $proxy_arr[$term->term_order] = $term;
+        }
+        ksort($proxy_arr);
+        ?>
+        <?php
+        foreach($proxy_arr as $key=>$term):
             ?>
             <?php
-            $term = get_category($term_id);
+            $term_id = $term->term_id;
             $image_url = get_wp_term_image($term_id);
             $image_id =  pippin_get_image_id($image_url);
             $image = fly_get_attachment_image_src($image_id, array(640, 298))['src'];
@@ -79,7 +102,23 @@ $image = fly_get_attachment_image_src($image_id, array(900, 600))['src'];
         <?php endforeach;?>
     <?php endif;?>
 </div>
-
+<footer>
+    <div class="wrapper">
+        <div class="logo">
+            <img src="<?php echo get_template_directory_uri(); ?>/prod/images/elements/logo.png" alt="Paradigm Projects Kazakhstan">
+        </div>
+        <div class="container">
+            <div class="socials">
+                <?php
+                //            $post_id = pll_get_post(99);
+                $post = get_post(99);
+                echo $post->post_content;
+                ?>
+            </div>
+            <div class="copyright">Копирайт Remedy</div>
+        </div>
+    </div>
+</footer>
 <?php get_footer();
 
 function pippin_get_image_id($image_url) {
