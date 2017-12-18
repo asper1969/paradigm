@@ -14,6 +14,10 @@ Theme Name: paradigm
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,500,500i,700,900');
 
+html{
+  overflow-x: hidden;
+}
+
 body{
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
@@ -36,6 +40,7 @@ body{
   @include transite(all);
   @include r(560){
     padding: 40px 20px;
+    padding-top: 30px;
   }
 
   &.active{
@@ -44,6 +49,88 @@ body{
 
   img{
     margin-bottom: 40px;
+
+    @include r(560){
+      margin-bottom: 20px;
+    }
+  }
+
+  li.menu-item-has-children{
+
+    >a{
+      position: relative;
+
+      &:hover{
+
+        &:after{
+          border-color: $c-accent;
+        }
+
+        &:before{
+          color: $c-accent;
+        }
+      }
+
+      &.active{
+
+        &:before{
+          opacity: 1;
+        }
+
+        &:after{
+          opacity: 0;
+        }
+      }
+
+      &:before{
+        content: '+';
+        display: block;
+        color: #fff;
+        transform-origin: -50% -50%;
+        transform: rotate(45deg);
+        top: -17px;
+        right: -58px;
+        font-weight: 100;
+        font-size: 36px;
+        position: absolute;
+        cursor: pointer;
+        opacity: 0;
+
+        @include transite(all);
+        @include r(560){
+          right: -40px;
+        }
+      }
+
+      &:after{
+        content: '';
+        display: block;
+        width: 16px;
+        height: 1px;
+        border-bottom: 1px solid #fff;
+        position: absolute;
+        top: calc(50% - 1px);
+        right: -18px;
+        transform: translateY(-50%);
+        opacity: 1;
+
+        @include transite(all);
+        @include r(560){
+          right: 0;
+        }
+      }
+    }
+
+    >ul{
+      display: none;
+
+      a{
+        text-transform: none;
+        padding-left: 20px;
+        font-size: 14px;
+        margin-bottom: 12px;
+      }
+    }
   }
 
   a{
@@ -439,33 +526,32 @@ body.not-front{
 
       @include transite(all);
     }
-  }
 
-  .paging-info{
-    position: absolute;
-    top: calc(50% + 7vw);
-    left: 35px;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 300;
-    transform: translateY(-50%);
-
-    @include r(1440){
-      top: calc(50% + 110px);
-    }
-    @include r(560){
-      font-size: 14px;
-      top: calc(50% + 100px);
-      right: 18px;
-      left: auto;
-    }
-
-    strong{
-      font-weight: 600;
-      font-size: 30px;
+    .paging-info{
+      position: absolute;
+      bottom: -85px;
+      top: auto;
+      margin-bottom: 0;
+      left: 10px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 300;
+      transform: translateY(-50%);
 
       @include r(560){
-        font-size: 24px;
+        font-size: 14px;
+        right: -10px;
+        left: auto;
+        bottom: -72px;
+      }
+
+      strong{
+        font-weight: 600;
+        font-size: 30px;
+
+        @include r(560){
+          font-size: 24px;
+        }
       }
     }
   }
@@ -842,9 +928,10 @@ body.ru{
       }
 
       .text{
-        max-height: 76px;
+        max-height: 90px;
         overflow-y: hidden;
         font-size: 14px;
+        line-height: 18px;
         margin-bottom: 32px;
 
         @include r(1200){
@@ -1211,6 +1298,7 @@ body.not-front{
       }
       @include r(560){
         padding: 30px 20px 50px;
+        min-height: initial;
       }
 
       h1.title{
@@ -1221,13 +1309,24 @@ body.not-front{
         width: 50%;
         //padding-right: 50px;
         padding-right: 3vw;
+        position: relative;
 
         @include r(1200){
-          margin-bottom: 20px;
+          margin-bottom: 30px;
           width: 100%;
         }
         @include r(560){
           font-size: 30px;
+        }
+
+        &:after{
+          content: '';
+          display: block;
+          width: 3.5vw;
+          height: 1px;
+          border-bottom: 3px solid $c-accent;
+          position: absolute;
+          bottom: -10px;
         }
       }
 
@@ -1395,20 +1494,24 @@ body.not-front{
     margin-top: -75px;
     min-height: calc(100vh - 120vw);
 
-    @include r(1370){
+    @include r(1600){
       margin-top: 0;
       padding: 3vw 74px 5vw;
     }
     @include r(560){
+      min-height: initial;
       padding: 30px 20px 50px;
     }
 
     .block-text{
       width: calc(50% - 74px);
       padding-right: 50px;
+      padding-top: 36px;
 
-      @include r(1370){
+      @include r(1600){
         width: 100%;
+        padding-right: 0;
+        padding-top: 0;
       }
 
       h1.title{
@@ -1418,6 +1521,7 @@ body.not-front{
         padding-bottom: 1.4vw;
         margin-bottom: 2vw;
         text-indent: -.2vw;
+        font-size: 3vw;
 
         @include r(560){
           font-size: 30px;
@@ -1447,7 +1551,7 @@ body.not-front{
       height: 31.4vw;
       background-position: center center !important;
 
-      @include r(1370){
+      @include r(1600){
         display: none;
       }
     }
@@ -1455,6 +1559,7 @@ body.not-front{
 
   >.img{
     height: 31.4vw;
+    margin-bottom: -6px;
 
     img{
       max-width: 100%;
@@ -1620,6 +1725,18 @@ body.not-front{
             }
           }
         }
+      }
+    }
+  }
+
+  .slider{
+    margin-bottom: -4px;
+
+    ul.slick-dots{
+      background: rgba(#000,0.3);
+
+      .paging-info{
+        text-shadow: 0px 0px 2px #000, 3px 3px 5px #000;
       }
     }
   }

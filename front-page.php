@@ -64,7 +64,6 @@ get_header(); ?>
             </div>
         <?php endforeach;?>
     </div>
-    <div class="paging-info"></div>
 </div>
 <div class="portfolio">
     <div class="col col-title">

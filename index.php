@@ -4,7 +4,7 @@
 <div class="main-menu">
     <img src="<?php echo get_template_directory_uri(); ?>/prod/images/elements/logo.png" alt="Paradigm Projects Kazakhstan">
     <?php
-    if($lang == 'ru'){
+    if($lang == 'ru' || $lang == ''){
         wp_nav_menu(array('menu' => 108));
     }elseif($lang == 'kk'){
         wp_nav_menu(array('menu' => 109));

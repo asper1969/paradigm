@@ -1,0 +1,36 @@
+/*!
+ * jQuery JavaScript Library v1.12.4
+ * http://jquery.com/
+ *
+ * Includes Sizzle.js
+ * http://sizzlejs.com/
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license
+ * http://jquery.org/license
+ *
+ * Date: 2016-05-20T17:17Z
+ */
+
+/*!
+ * Sizzle CSS Selector Engine v2.2.1
+ * http://sizzlejs.com/
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license
+ * http://jquery.org/license
+ *
+ * Date: 2015-10-17
+ */
+
+/*!
+* Lettering.JS 0.7.0
+*
+* Copyright 2010, Dave Rupert http://daverupert.com
+* Released under the WTFPL license
+* http://sam.zoy.org/wtfpl/
+*
+* Thanks to Paul Irish - http://paulirish.com - for the feedback.
+*
+* Date: Mon Sep 20 17:14:00 2010 -0600
+*/
